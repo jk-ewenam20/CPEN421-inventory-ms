@@ -1,0 +1,149 @@
+/* ─── Dashboard ─── */
+.dash { display: flex; flex-direction: column; gap: 24px; }
+
+.dash__loader {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  padding: 60px 0;
+  text-align: center;
+}
+
+/* ── KPI card grid ── */
+.dash__cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.dash__card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  border-top: 3px solid transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* colored top borders */
+.dash__card--accent  { border-top-color: var(--accent); }
+.dash__card--success { border-top-color: var(--success); }
+.dash__card--danger  { border-top-color: var(--danger); }
+.dash__card--warning { border-top-color: var(--warning); }
+
+.dash__card-value {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.2;
+}
+.dash__card-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ── Panel (recent table wrapper) ── */
+.dash__panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+}
+
+.dash__panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+.dash__panel-head h3 {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.dash__view-all {
+  background: none;
+  border: none;
+  color: var(--accent);
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.dash__view-all:hover { text-decoration: underline; }
+
+.dash__empty {
+  color: var(--text-dim);
+  font-size: 0.82rem;
+  text-align: center;
+  padding: 40px 0;
+}
+.dash__link {
+  background: none; border: none;
+  color: var(--accent); font: inherit; cursor: pointer; font-weight: 600;
+}
+
+/* ── Table ── */
+.dash__table-wrap { overflow-x: auto; }
+
+.dash__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+
+.dash__table th {
+  text-align: left;
+  color: var(--text-dim);
+  font-weight: 600;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 0 0 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.dash__table td {
+  padding: 11px 0;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--surface-hover);
+}
+
+.dash__row {
+  cursor: pointer;
+  transition: background 0.12s;
+}
+.dash__row:hover td { background: var(--surface-hover); }
+
+.dash__name {
+  color: var(--text) !important;
+  font-weight: 550;
+}
+
+/* status badge */
+.dash__badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+.dash__badge--success { background: var(--success-dim); color: var(--success); }
+.dash__badge--danger  { background: var(--danger-dim);  color: var(--danger); }
+
+/* ─── Responsive ─── */
+@media (max-width: 900px) {
+  .dash__cards { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .dash__cards { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .dash__card  { padding: 16px; }
+  .dash__card-value { font-size: 1.35rem; }
+}
