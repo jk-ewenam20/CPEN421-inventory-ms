@@ -19,7 +19,11 @@ mongoose.connect(mongoURI)
 
 // Middlewares
 app.use(express.json());
-app.use(cors())
+app.use(cors({
+  origin: "https://YOUR_USERNAME.github.io",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+}))
 
 // Routes
 app.use('/api/users', usersRoute);
