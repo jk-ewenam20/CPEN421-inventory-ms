@@ -26,6 +26,7 @@ app.use(cors({
   credentials: true
 }))
 
+
 // Routes
 app.use('/api/users', usersRoute);
 app.use('/api/items', require('./routes/items.route'));
