@@ -20,9 +20,10 @@ mongoose.connect(mongoURI)
 // Middlewares
 app.use(express.json());
 app.use(cors({
-  origin: "https://cpen-421-inventory-ms.vercel.app/login",
+  origin: "https://cpen-421-inventory-ms.vercel.app",
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true
 }))
 
 // Routes
