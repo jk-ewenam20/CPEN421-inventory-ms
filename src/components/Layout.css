@@ -1,0 +1,40 @@
+/* ─── Layout Shell ─── */
+.layout {
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* main area sits to the right of the sidebar */
+.layout__main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-left: 240px;       /* matches sidebar width */
+  min-width: 0;             /* lets flex child shrink below content size */
+}
+
+/* scrollable page body */
+.layout__content {
+  flex: 1;
+  padding: 28px 32px;
+  overflow-y: auto;
+}
+
+/* mobile overlay behind drawer */
+.layout__overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0 0 0 / 0.45);
+  z-index: 99;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 768px) {
+  .layout__main {
+    margin-left: 0;         /* sidebar slides over on mobile */
+  }
+  .layout__content {
+    padding: 20px 16px;
+  }
+}

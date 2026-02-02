@@ -1,0 +1,169 @@
+/* ─── Item Form (Add & Edit) ─── */
+.item-form { display: flex; flex-direction: column; gap: 20px; max-width: 720px; }
+
+.item-form__loader {
+  color: var(--text-dim); font-size: 0.9rem;
+  padding: 60px 0; text-align: center;
+}
+
+/* header row */
+.item-form__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.item-form__header h2 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.item-form__back {
+  color: var(--text-dim);
+  font-size: 0.82rem;
+  font-weight: 600;
+  transition: color 0.15s;
+}
+.item-form__back:hover { color: var(--accent); }
+
+/* error banner */
+.item-form__error {
+  background: var(--danger-dim);
+  border: 1px solid var(--danger);
+  color: var(--danger);
+  font-size: 0.78rem;
+  padding: 10px 14px;
+  border-radius: var(--radius);
+}
+
+/* card */
+.item-form__card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+}
+
+/* two-column row */
+.item-form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+/* single field */
+.item-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.item-form__field label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.item-form__field input:not([type=checkbox]),
+.item-form__field textarea {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.88rem;
+  padding: 10px 14px;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  width: 100%;
+}
+.item-form__field input::placeholder,
+.item-form__field textarea::placeholder { color: var(--text-dim); }
+.item-form__field input:focus,
+.item-form__field textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-dim);
+}
+
+.item-form__field textarea { resize: vertical; }
+
+/* checkbox field */
+.item-form__field--checkbox {
+  justify-content: flex-end;   /* align vertically with sibling input */
+}
+.item-form__field--checkbox label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+.item-form__field--checkbox input[type=checkbox] {
+  width: 18px; height: 18px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+/* spacer between rows */
+.item-form__card > form > .item-form__row + .item-form__field,
+.item-form__card > form > .item-form__field + .item-form__row,
+.item-form__card > form > .item-form__row + .item-form__row {
+  margin-top: 18px;
+}
+.item-form__card > form > .item-form__field + .item-form__field {
+  margin-top: 18px;
+}
+
+/* action bar */
+.item-form__actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 1px solid var(--border);
+}
+
+.item-form__btn {
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 9px 20px;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+  white-space: nowrap;
+}
+.item-form__btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.item-form__btn--primary {
+  background: var(--accent);
+  color: #0f172a;
+}
+.item-form__btn--primary:hover { background: #7dd3fc; }
+
+.item-form__btn--ghost {
+  background: var(--surface-hover);
+  color: var(--text-muted);
+  border-color: var(--border);
+}
+.item-form__btn--ghost:hover { color: var(--text); }
+
+.item-form__btn--danger {
+  background: transparent;
+  color: var(--danger);
+  border-color: var(--danger);
+}
+.item-form__btn--danger:hover { background: var(--danger-dim); }
+
+/* ─── Responsive ─── */
+@media (max-width: 580px) {
+  .item-form__row { grid-template-columns: 1fr; }
+  .item-form__card { padding: 20px 18px; }
+  .item-form__field--checkbox { justify-content: flex-start; }
+}
